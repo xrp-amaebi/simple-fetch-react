@@ -18,14 +18,14 @@ export const useFetchApi = (page=1) => {
     const end = limit * current
 
     const prevPage = current < 2 ? 1 : current - 1 
-    const nextPage = current + 1
+    const nextPage = current === navigationList.length ? current : current + 1
 
 
     useEffect(() => {
         async function fetchPageProps(data={}) {
             async function getPrev() {
                 try {
-                    if(!prev) return []
+                    if(!prev) return
                     const start = prevPage === 1 ? 0 : ((limit * prevPage) - limit)
                     const payload = await axios.get(prev)
                     const preprocessor = payload.data.results.map((item, int) => {
@@ -47,7 +47,7 @@ export const useFetchApi = (page=1) => {
         
             async function getNext() { 
                 try {
-                    if(!next) return []
+                    if(!next) return
                     const start = nextPage === 1 ? 0 : ((limit * nextPage) - limit)
                     const payload = await axios.get(next)
                     const preprocessor = payload.data.results.map((item, int) => {
