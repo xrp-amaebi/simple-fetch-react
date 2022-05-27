@@ -22,10 +22,10 @@ export const useFetchApi = (page=1) => {
 
 
     useEffect(() => {
-        async function fetchPageProps(data={}) {
+        async function fetchPageProps(prev, next) {
             async function getPrev() {
                 try {
-                    if(!prev) return
+                    if(!prev) return paginationData[prevPage]
                     const start = prevPage === 1 ? 0 : ((limit * prevPage) - limit)
                     const payload = await axios.get(prev)
                     const preprocessor = payload.data.results.map((item, int) => {
@@ -47,7 +47,7 @@ export const useFetchApi = (page=1) => {
         
             async function getNext() { 
                 try {
-                    if(!next) return
+                    if(!next) return paginationData[nextPage]
                     const start = nextPage === 1 ? 0 : ((limit * nextPage) - limit)
                     const payload = await axios.get(next)
                     const preprocessor = payload.data.results.map((item, int) => {
@@ -68,11 +68,14 @@ export const useFetchApi = (page=1) => {
             const functions = [getPrev(), getNext()]
             await Promise.all(functions)
             .then((results) => {
-                setPaginationData({ ...paginationData, [prevPage]: results[0], [nextPage]: results[1] })
+                // console.log({ results }, "hum")
+                const p = results[0] ? results[0] : paginationData[prevPage]
+                const n = results[1] ? results[1] : paginationData[nextPage]
+                setPaginationData({ ...paginationData, [prevPage]: p, [nextPage]: n })
             })
         }
 
-        fetchPageProps()
+        fetchPageProps(prev, next)
     }, [prev, next])
 
     useEffect(() => {
@@ -110,8 +113,8 @@ export const useFetchApi = (page=1) => {
                     })
 
                     setLoading(false);
-                    setData(preprocessor);
                     setPaginationData({ ...paginationData, [current]: preprocessor })
+                    setData(preprocessor);
                 })
             } catch(e){
                 console.clear()
@@ -120,9 +123,9 @@ export const useFetchApi = (page=1) => {
         }
 
         fetchData()
-    },[current])
+    },[current, paginationData])
 
-    console.log({ paginationData })
+    // console.log({ paginationData })
 
     return { isLoading, data, paginationData, length: dataLength, limit, current, setCurrent, navigationList, end, start }
 }
