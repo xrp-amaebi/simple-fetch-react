@@ -1,0 +1,6 @@
+.container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    position: relative;
+}
