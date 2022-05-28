@@ -1,5 +1,5 @@
 import { Container, Loader, MainSection } from "./style"
-import TableData from "./components/tableData"
+import TableData from "./components/Table"
 import { useFetchApi } from "../../Hooks/fetchApi"
 import { Paginate } from "./components/Paginate"
 
