@@ -8,7 +8,6 @@ export const Paginate = (props) => {
     const prev = current < 2 ? 1 : current - 1 
 
     function handlePageChange(page){
-        // const page = Number(item)
         const max = pageList.length + 1
         if(page === max + 1) return
         if(current === page) return

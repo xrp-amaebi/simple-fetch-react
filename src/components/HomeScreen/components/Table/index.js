@@ -1,11 +1,10 @@
 import { Shell, ShellContent, ShellHeader } from "./style";
 
-const TableData = (props) => {
+export const TableData = (props) => {
     const { allowableData } = props;
 
     return allowableData.map((content, int) => {
         const last = int === allowableData.length - 1 ? "last": ''
-        // const serial = start + (int + 1)
         const parsedHead = Object.keys(content).map((header, index) => {
             return <div className={`header-${header}`} key={index}>{header.toLowerCase()}</div>
         })
@@ -16,14 +15,12 @@ const TableData = (props) => {
 
         const header = int === 0 ? 
             <ShellHeader>
-                {/* <div className={`header-serial`}>s/n</div> */}
                 {parsedHead}
             </ShellHeader> 
         : null
 
         const value = (
             <ShellContent data-last={last}>
-                {/* <div className={`item-serial`}>{serial}</div> */}
                 {parsedValues}
             </ShellContent>
         )
@@ -36,6 +33,3 @@ const TableData = (props) => {
         )
     })
 }
-
-
-export default TableData;

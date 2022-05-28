@@ -127,5 +127,5 @@ export const useFetchApi = (page=1) => {
 
     // console.log({ paginationData })
 
-    return { isLoading, data, paginationData, length: dataLength, limit, current, setCurrent, navigationList, end, start }
+    return { isLoading, data, current, setCurrent, navigationList, start }
 }
