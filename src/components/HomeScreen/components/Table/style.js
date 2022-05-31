@@ -125,3 +125,93 @@ export const ShellContent = styled.div`
     }
 
 `
+
+export const Card = styled.div`
+    border-block-end: 1px solid rgba(100, 100, 100, .3);
+    margin-block-end: .5rem;
+    padding-inline: 1rem;
+    padding-block-start: 1rem;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 10% repeat(3, 30%);
+    // grid-template-rows: repeat(3, 40%);
+    grid-gap: .5rem;
+ 
+
+    .first {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 3;
+        padding-block-start: 1rem;
+    }
+`
+
+export const Content = styled.div`
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+`
+
+export const CardHeader = styled.div`
+    font-family: monospace;
+    color: black;
+    font-weight: bold;
+    font-size: .8rem;
+`
+
+export const CardBody = styled.div`
+    color: rgba(100, 100, 100, 1);
+    font-family: monospace;
+    font-size: .7rem;
+    overflow: hidden;
+`
+
+export const Index = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: .9rem;
+    // text-align: center;
+`
+
+
+
+// export const Jcontent = styled.div`
+
+//     .inner {
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         border: 1px solid grey;
+//         padding: 5px;
+//         border-radius: 5px;
+//         margin: 5px 0;
+
+//         .num{
+//             width: 10%;
+//         }
+//         .right{
+//             width: 90%;
+//         }
+//     }
+//     .one {
+//         margin: 2.5px 0;
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         // border: 1px solid black;
+       
+//         div{
+//             width: 33%;
+//             font-size: 8pt;
+//             border-bottom: .5px solid grey;
+//         }
+
+//         .kit{
+//             width: 100%;
+//         }
+//     }
+// `;

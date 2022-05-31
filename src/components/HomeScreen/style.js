@@ -1,11 +1,12 @@
 import styled from "styled-components/macro"
+// import { useMediaQuery } from "../../Hooks/mediaQuery"
 
 export const Container = styled.div`
     min-height: 100vh;
-    background-color: #EBEBEB;
+    background-color: "white";
     padding-block: 2rem;
     padding-inline: 3rem;
-        
+
 `
 
 export const MainSection = styled.div`
