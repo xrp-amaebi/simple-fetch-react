@@ -128,7 +128,7 @@ export const ShellContent = styled.div`
 
 export const Card = styled.div`
     border-block-end: 1px solid rgba(100, 100, 100, .3);
-    margin-block-end: .5rem;
+    // margin-block-end: .5rem;
     padding-inline: 1rem;
     padding-block-start: 1rem;
     overflow: hidden;
@@ -143,6 +143,11 @@ export const Card = styled.div`
         grid-column: 1 / span 1;
         grid-row: 1 / span 3;
         padding-block-start: 1rem;
+    }
+
+    :hover{
+        background-color: rgba(205, 205, 205, .3);
+        cursor: default;
     }
 `
 
@@ -173,8 +178,6 @@ export const Index = styled.div`
     justify-content: center;
     font-family: monospace;
     font-weight: bold;
-    font-size: .9rem;
-    // text-align: center;
 `
 
 

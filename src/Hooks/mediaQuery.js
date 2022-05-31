@@ -7,7 +7,7 @@ function getResolution(){
 
 export const useMediaQuery = () => {
     const [resolution, setResolution] = useState(getResolution())
-    const [dimensions, setDimensions] = useState({
+    const [query, setQuery] = useState({
         isMobile: false,
         isDesktop: false,
         isLargeDesktop: false,
@@ -15,30 +15,30 @@ export const useMediaQuery = () => {
         isSmallTablet: false
     })
 
-    function resolveSize(resolution){
+    function resolveScreen(resolution){
         const { width } = resolution
         const shell = {
             isMobile: width <= 480 ? true : false,
             isDesktop: ((width >= 1025) && (width <= 1280)) ? true : false,
             isLargeDesktop: width >= 1281 ? true : false,
             isTablet: ((width >= 768)  && (width <= 1024)) ? true : false,
-            isSmallTablet: ((width >= 481)  &&  (width <= 767)) ? true : false
+            isSmallTablet: ((width >= 481) && (width <= 767)) ? true : false
         }
-        setDimensions({ ...dimensions, ...shell })
+        setQuery({ ...query, ...shell })
     }
 
     useEffect(() =>  {
         function handleResize(){
             setResolution(getResolution())
         }
-        
         window.addEventListener("resize", handleResize)
-        // console.log("fired!!!")
     }, [])
 
     useEffect(() => {
-        resolveSize(resolution)
+        resolveScreen(resolution)
     }, [resolution])
 
-    return { dimensions }
+   
+
+    return { query }
 }

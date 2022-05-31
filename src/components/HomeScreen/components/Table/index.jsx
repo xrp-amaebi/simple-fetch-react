@@ -29,7 +29,12 @@ export const TableData = (props) => {
         const cardContent = Object.entries(content).map((item, index) => {
             const [header, body] = item
             const first = index === 0;
-            const edited = header === "edited" ? Date.parse(body) : body
+            const dateParser = (date) => {
+                const init = Date(date)
+                const [val] = init.split("GMT")
+                return val
+            }
+            const edited = header === "edited" ? dateParser(body) : body
             
             return (
                 first ? 

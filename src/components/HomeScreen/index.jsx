@@ -6,7 +6,7 @@ import { useMediaQuery } from "../../Hooks/mediaQuery"
 
 export const Content = () => {
     const { isLoading: loading, data, current, setCurrent, start, navigationList } = useFetchApi()
-    const { dimensions: query } = useMediaQuery()
+    const { query } = useMediaQuery()
     // const allowableData = data.slice(start, end)
     return (
         <Container query={query}>
