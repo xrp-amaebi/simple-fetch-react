@@ -6,6 +6,7 @@ export const PageButton = styled.button`
     border: 1px solid rgba(110, 110, 110, .3);
     padding-block: .3rem;
     padding-inline: .5rem;
+    min-height: 25px;
     border-radius: 2px;
     margin-inline-end: .3rem;
     cursor: pointer;
