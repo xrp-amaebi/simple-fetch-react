@@ -2,7 +2,7 @@ import styled from "styled-components/macro"
 
 export const PageList = styled.div`
     margin: 0 auto;
-    margin-block-start: 2rem;
+    margin-block: 2rem;
 `
 
 export const NavButton = styled.button`
@@ -12,7 +12,7 @@ export const NavButton = styled.button`
     background-color: transparent;
     font-weight: 600;
 
-    :hover{
+    :hover {
         color: rgba(100, 100, 100, 1);
     }
 `

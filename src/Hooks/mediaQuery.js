@@ -38,7 +38,5 @@ export const useMediaQuery = () => {
         resolveScreen(resolution)
     }, [resolution])
 
-   
-
     return { query }
 }
